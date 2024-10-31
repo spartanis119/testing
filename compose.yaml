@@ -1,0 +1,15 @@
+version : "3"
+
+services:
+  express:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /opt/data 
+    command: ["tail", "-f", "/dev/null"]
+    image: express:2.0
+    container_name: testing_container 
+    ports:
+      - "4500:4500"
+    volumes:
+      - ./:/opt/data
